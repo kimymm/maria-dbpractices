@@ -14,21 +14,22 @@ from salaries;
 -- 문제3.
 -- 가장 오래 근속한 직원의 입사일은 언제인가요? 다음 형식으로 출력해주세요.
 -- 예) 2014년 07월 10일
-select min(date_format(to_date - from_date), '%Y년 %m월 %d일')
+select date_format(min(from_date), '%Y년 %m월 %d일')
 from salaries;
 
 -- 문제4.
 --  현재 이 회사의 평균 연봉은 얼마입니까?
-;
 select avg(salary)
-from salaries;
+from salaries
+where to_date = '9999-01-01';
 
 -- 문제5.
 -- 현재 이 회사의 최고/최저 연봉은 얼마입니까?
 select max(salary), min(salary)
-from salaries;
+from salaries
+where to_date = '9999-01-01'; 
 
 -- 문제6.
 -- 최고 어린 사원의 나이와 최 연장자의 나이는?
-select min(birth_date), max(birth_date)
+select date_format(current_date - max(birth_date), '%y') '최고 어린 사원 나이', date_format(current_date- min(birth_date), '%y') '최 연장자의 나이'
  from employees;
