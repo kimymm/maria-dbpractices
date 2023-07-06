@@ -14,7 +14,8 @@ from salaries;
 -- 문제3.
 -- 가장 오래 근속한 직원의 입사일은 언제인가요? 다음 형식으로 출력해주세요.
 -- 예) 2014년 07월 10일
-select max(now()-
+select min(date_format(to_date - from_date), '%Y년 %m월 %d일')
+from salaries;
 
 -- 문제4.
 --  현재 이 회사의 평균 연봉은 얼마입니까?
